@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script crossorigin="anonymous" src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script crossorigin="anonymous" src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script crossorigin="anonymous" src="https://quadjr.github.io/aframe-gaussian-splatting/index.js"></script>
+    <script type="importmap">
+      {
+          "imports": {
+              "@lookingglass/webxr": "./lib/webxr.module.js"
+          }
+      }
+    </script>
+    <script type="module">
+      import { LookingGlassWebXRPolyfill } from "@lookingglass/webxr"
+      new LookingGlassWebXRPolyfill()
+    </script>
   </head>
   <body>
-    <a-scene renderer="antialias: false" stats>
-      <a-entity position="0 1.6 -2.0" animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true">
+    <!-- xr-mode-ui="enabled: true; enterVREnabled: true" -->
+    <a-scene renderer="antialias: false">
+      <!-- <a-entity position="0 1.6 -2.0" animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true">
         <a-sphere position="0 0 0.5" radius="0.5" color="#EF2D5E"></a-sphere>
         <a-sphere position="0 0 -0.5" radius="0.5" color="#EF2D5E"></a-sphere>
-      </a-entity>
-      <a-entity gaussian_splatting="src: https://huggingface.co/cakewalk/splat-data/resolve/main/train.splat;" rotation="0 0 0" position="0 1.5 -2"></a-entity>
+      </a-entity> -->
+      <a-entity gaussian_splatting="src: /assets/gs_flower.ply;" rotation="0 -180.000 0" position="-0.640 -0.750 -7.380"></a-entity>
     </a-scene>
   </body>
 </html>
