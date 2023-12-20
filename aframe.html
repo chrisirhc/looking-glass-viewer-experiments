@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script crossorigin="anonymous" src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script crossorigin="anonymous" src="https://quadjr.github.io/aframe-gaussian-splatting/index.js"></script>
     <script type="importmap">
       {
           "imports": {
-              "@lookingglass/webxr": "./lib/webxr.module.js"
+              "@lookingglass/webxr": "./lib/webxr.module.js",
+              "aframe": "./lib/aframe-master.js"
           }
       }
     </script>
     <script type="module">
       import { LookingGlassWebXRPolyfill } from "@lookingglass/webxr"
       new LookingGlassWebXRPolyfill()
+      import("aframe");
     </script>
+    <!-- <script crossorigin="anonymous" src="https://aframe.io/releases/1.5.0/aframe.js"></script> -->
+    <!-- <script crossorigin="anonymous" src="https://quadjr.github.io/aframe-gaussian-splatting/index.js"></script> -->
   </head>
   <body>
     <!-- xr-mode-ui="enabled: true; enterVREnabled: true" -->
     <a-scene renderer="antialias: false">
-      <a-entity position="0 1.6 -2.0" animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true">
+      <!-- <a-box color="tomato" depth="1" height="1" width="0.5"></a-box> -->
+
+      <a-entity position="0 1.6 -2.0">
+        
         <a-sphere position="0 0 0.5" radius="0.5" color="#EF2D5E"></a-sphere>
         <a-sphere position="0 0 -0.5" radius="0.5" color="#EF2D5E"></a-sphere>
       </a-entity>
+      <!-- <a-entity position="0 1.6 -2.0" animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true">
+        <a-sphere position="0 0 0.5" radius="0.5" color="#EF2D5E"></a-sphere>
+        <a-sphere position="0 0 -0.5" radius="0.5" color="#EF2D5E"></a-sphere>
+      </a-entity> -->
       <!-- <a-entity gaussian_splatting="src: /assets/gs_flower.ply;" rotation="0 -180.000 0" position="-0.640 -0.750 -7.380"></a-entity> -->
     </a-scene>
   </body>
