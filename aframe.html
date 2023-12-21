@@ -13,11 +13,9 @@
       import { LookingGlassWebXRPolyfill } from "@lookingglass/webxr"
       new LookingGlassWebXRPolyfill()
       window.AFRAME_ASYNC = true;
-      import("aframe").then((aframe) => {
-        import("https://quadjr.github.io/aframe-gaussian-splatting/index.js").then(() => {
-          window.AFRAME.ready();
-        })
-      });
+      await import("aframe")
+      await import("https://quadjr.github.io/aframe-gaussian-splatting/index.js")
+      window.AFRAME.ready();
     </script>
   </head>
   <body>
